@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalCount = document.getElementById("total-count");
   const interviewCount = document.getElementById("interview-count");
   const rejectedCount = document.getElementById("rejected-count");
+    const availableJobs = document.getElementById("available-jobs");
+  const noJobsSection = document.getElementById("no-jobs-section");
+  const filterButtons = document.querySelectorAll(".filter-btn");
 
 
   // update total counts
@@ -18,6 +21,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateAvailableJobs(); // filter applied count update
   }
+  // update visible jobs count & no jobs section
+  function updateAvailableJobs() {
+    let visibleCount = 0;
+    postContainer.querySelectorAll("section").forEach((post) => {
+      if (post.style.display !== "none") visibleCount++;
+    });
+    availableJobs.textContent = visibleCount;
+    noJobsSection.classList.toggle("hidden", visibleCount > 0);
+  }
+    // change status of a job
+  function changeStatus(section, status) {
+    const badge = section.querySelector(".not-applied");
+    section.classList.remove("status-interview", "status-rejected");
+
+    if (status === "interview") {
+      badge.textContent = "INTERVIEW";
+      badge.className = "btn btn-soft text-white mb-2 bg-emerald-600 not-applied";
+      section.classList.add("status-interview");
+    } else if (status === "rejected") {
+      badge.textContent = "REJECTED";
+      badge.className = "btn btn-soft text-white mb-2 bg-rose-700 not-applied";
+      section.classList.add("status-rejected");
+    }
+
+    updateCounts();
+  }
+
 
   // trigger default filter
   document.querySelector('[data-status="all"]').click();
