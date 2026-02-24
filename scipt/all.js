@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (status === "interview") {
       badge.textContent = "INTERVIEW";
-      badge.className = "btn btn-soft text-green-600 mb-2 not-applied";
+      badge.className = "btn btn-soft text-white bg-emerald-700 mb-2 not-applied";
       section.classList.add("status-interview");
     } else if (status === "rejected") {
       badge.textContent = "REJECTED";
-      badge.className = "btn btn-soft text-red-600 mb-2 not-applied";
+      badge.className = "btn btn-soft text-white bg-rose-700 mb-2 not-applied";
       section.classList.add("status-rejected");
     }
 
@@ -91,4 +91,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // trigger default filter
   document.querySelector('[data-status="all"]').click();
+  updateCounts();
 });
