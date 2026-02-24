@@ -33,8 +33,11 @@ html-5<div id="parent">
 js-document.getElementById('parent').addEventListener('click', () => console.log('Parent clicked'));
 document.getElementById('child').addEventListener('click', () => console.log('Child clicked'));
 Clicking the button will show the log:
+
 Child clicked
 Parent clicked
+
+
 
 4. What is Event Delegation in JavaScript? Why is it useful?
                 --------------ANSWER-----------
@@ -48,6 +51,9 @@ document.getElementById('parent').addEventListener('click', (e) => {
     console.log('Button clicked:', e.target.textContent);
   }
 });
+
+
+
 5. What is the difference between preventDefault() and stopPropagation() methods?
                 --------------ANSWER-----------
 Difference between preventDefault() and stopPropagation() -
