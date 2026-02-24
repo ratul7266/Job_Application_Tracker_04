@@ -28,12 +28,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <!-- <style>
-      *{
-            background-color: #f8f8f8;
-        }
-    </style> -->
   </head>
   <body class="py-14 mx-auto container">
     <header>
@@ -52,13 +46,13 @@
         <div class="card card-border bg-neutral-50 w-96 border border-gray-200">
           <div class="card-body">
             <h2 class="card-title text-sm font-medium">Interview</h2>
-            <h2 class="card-title text-2xl font-bold text-green-600">0</h2>
+            <h2 id="interview-count"  class="card-title text-2xl font-bold text-green-600">0</h2>
           </div>
         </div>
         <div class="card card-border bg-neutral-50 w-96 border border-gray-200">
           <div class="card-body">
             <h2 class="card-title text-sm font-medium">Rejected</h2>
-            <h2 class="card-title text-2xl font-bold text-red-600">0</h2>
+            <h2 id="rejected-count" class="card-title text-2xl font-bold text-red-600">0</h2>
           </div>
         </div>
       </nav>
@@ -75,10 +69,10 @@
         <button class="btn filter-btn text-gray-600 hover:bg-primary hover:text-white" data-status="all">
           All
         </button>
-        <button class="btn filter-btn text-gray-600 hover:bg-primary hover:text-white" data-status="interview">
+        <button class="head-interview btn filter-btn text-gray-600 hover:bg-primary hover:text-white" id="interview-section" data-status="interview">
           Interview
         </button>
-        <button class="btn filter-btn text-gray-600 hover:bg-primary hover:text-white" data-status="rejected">
+        <button class="head-rejected btn filter-btn text-gray-600 hover:bg-primary hover:text-white" id="rejected-section" data-status="rejected">
           Rejected
         </button>
       </section>
@@ -102,18 +96,18 @@
             <p class="text-base text-gray-600 my-5">
               Remote • Full-time • $130,000 - $175,000
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button  class= "not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               Build cross-platform mobile applications using React Native. Work
               on products used by millions of users worldwide.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class="interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
@@ -139,18 +133,18 @@
             <p class="text-base text-gray-600 my-5">
               Los Angeles, CA • Part-time • $80,000 - $120,000
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button class="not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               Create stunning web experiences for high-profile clients. Must
               have portfolio and experience with modern web design trends.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class="interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
@@ -178,18 +172,18 @@
             <p class="text-base text-gray-600 my-5">
               Boston, MA • Full-time • $125,000 - $165,000
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button class="not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               Transform complex data into compelling visualizations. Required
               skills: D3.js, React, and strong analytical thinking.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class="interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
@@ -215,18 +209,18 @@
             <p class="text-base text-gray-600 my-5">
               Seattle, WA • Full-time • $140,000 - $190,000
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button class="not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               Design and maintain scalable backend systems using Python and AWS.
               Work with modern DevOps practices and cloud infrastructure.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class="interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
@@ -252,19 +246,19 @@
             <p class="text-base text-gray-600 my-5">
               Austin, TX • Full-time • $110,000 - $150,000
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button class="not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               Create beautiful and functional user interfaces for our suite of
               products. Strong design skills and frontend development expertise
               required.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class="interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
@@ -290,19 +284,19 @@
             <p class="text-base text-gray-600 my-5">
               New York, NY • Full-time • $130,000 - $170,00
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button class="not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               Build enterprise applications with JavaScript and modern
               frameworks. We offer competitive compensation, health insurance,
               and professional development opportunities.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class=" interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
@@ -328,19 +322,19 @@
             <p class="text-base text-gray-600 my-5">
               Remote • Full-time • $120,000 - $160,000
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button class="not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               Join our fast-growing startup and work on our core platform.
               Experience with Node.js and React required. Great benefits and
               equity package included.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class="interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
@@ -368,19 +362,19 @@
             <p class="text-base text-gray-600 my-5">
               San Francisco, CA • Full-time • $130,000 - $175,000
             </p>
-            <button class="btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
+            <button class="not-applied btn btn-soft text-gray-950 mb-2">NOT APPLIED</button>
             <p class="text-base text-gray-950 mb-5">
               We are looking for an experienced Frontend Developer to build
               scalable web applications using React and TypeScript. You will
               work with a talented team on cutting-edge projects.
             </p>
             <button
-              class="btn text-success border-success hover:bg-success hover:text-white"
+              class=" interview-btn btn text-success border-success hover:bg-success hover:text-white"
             >
               INTERVIEW
             </button>
             <button
-              class="btn text-error border-error hover:bg-error hover:text-white"
+              class="rejected-btn btn text-error border-error hover:bg-error hover:text-white"
             >
               REJECTED
             </button>
