@@ -33,16 +33,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // change status of a job
   function changeStatus(section, status) {
     const badge = section.querySelector(".not-applied");
+
+    // check previous status
+    const wasNotApplied =
+      !section.classList.contains("status-interview") &&
+      !section.classList.contains("status-rejected");
+
+    // remove old status classes
     section.classList.remove("status-interview", "status-rejected");
 
     if (status === "interview") {
       badge.textContent = "INTERVIEW";
-      badge.className = "btn btn-soft text-white bg-emerald-700 mb-2 not-applied";
+      badge.className =
+        "btn btn-soft text-white bg-emerald-700 mb-2 not-applied";
       section.classList.add("status-interview");
     } else if (status === "rejected") {
       badge.textContent = "REJECTED";
       badge.className = "btn btn-soft text-white bg-rose-700 mb-2 not-applied";
       section.classList.add("status-rejected");
+    }
+
+    // reduce total if this was NOT APPLIED before
+    if (wasNotApplied) {
+      const currentTotal = parseInt(totalCount.textContent);
+      totalCount.textContent = currentTotal - 1;
     }
 
     updateCounts();
