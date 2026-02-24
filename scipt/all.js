@@ -48,7 +48,23 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCounts();
   }
 
+    // delete a job
+  function deleteSection(section) {
+    section.remove();
+    updateCounts();
+  }
 
+  // Event delegation for buttons inside sections
+  postContainer.addEventListener("click", (e) => {
+    const section = e.target.closest("section");
+    if (!section) return;
+
+    if (e.target.closest(".interview-btn")) changeStatus(section, "interview");
+    else if (e.target.closest(".rejected-btn")) changeStatus(section, "rejected");
+    else if (e.target.closest(".mobile-del")) deleteSection(section);
+  });
+
+ 
   // trigger default filter
   document.querySelector('[data-status="all"]').click();
 });
