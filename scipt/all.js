@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     interviewCount.textContent = interviews.length;
     rejectedCount.textContent = rejected.length;
 
-    updateAvailableJobs(); // filter applied count update
+    updateAvailableJobs();
   }
 
   // update visible jobs count & no jobs section
@@ -53,34 +53,36 @@ document.addEventListener("DOMContentLoaded", () => {
     section.remove();
     updateCounts();
   }
-
   // Event delegation for buttons inside sections
   postContainer.addEventListener("click", (e) => {
     const section = e.target.closest("section");
     if (!section) return;
 
     if (e.target.closest(".interview-btn")) changeStatus(section, "interview");
-    else if (e.target.closest(".rejected-btn")) changeStatus(section, "rejected");
+    else if (e.target.closest(".rejected-btn"))
+      changeStatus(section, "rejected");
     else if (e.target.closest(".mobile-del")) deleteSection(section);
   });
 
   // Filter buttons
   filterButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // active button style
-      filterButtons.forEach((b) => b.classList.remove("bg-primary", "text-white"));
+      filterButtons.forEach((b) =>
+        b.classList.remove("bg-primary", "text-white"),
+      );
       btn.classList.add("bg-primary", "text-white");
 
       const status = btn.dataset.status;
-      postContainer.querySelectorAll("section").forEach((post) => {
-        const postStatus = post.classList.contains("status-interview")
-          ? "interview"
-          : post.classList.contains("status-rejected")
-          ? "rejected"
-          : "not-applied";
 
-        if (status === "all" || postStatus === status) post.style.display = "block";
-        else post.style.display = "none";
+      postContainer.querySelectorAll("section").forEach((post) => {
+        let postStatus = "not-applied";
+        if (post.classList.contains("status-interview"))
+          postStatus = "interview";
+        else if (post.classList.contains("status-rejected"))
+          postStatus = "rejected";
+
+        post.style.display =
+          status === "all" || postStatus === status ? "block" : "none";
       });
 
       updateAvailableJobs();
